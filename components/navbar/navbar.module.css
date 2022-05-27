@@ -1,20 +1,16 @@
-.nav{
+.nav {
+    --padding: 13px;
+    padding-left: var(--padding);
+    padding-right: var(--padding);
 
-    
-    height: 100px;
-    
+}
+
+@media (min-width: 600px) {
+    .nav {
+        height: var(--height-navbar);
+    }
 }
 
 .nav a {
-    /*
-    background-color: yellow;
-    */
-    color:inherit !important;
-}
-
-.pepa{
-    /*
     color: inherit !important;
-    color:red !important;
-    */
 }
