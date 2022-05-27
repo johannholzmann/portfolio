@@ -12,7 +12,6 @@ const Layout = ({ children }) => {
         <div className={styles.app}>
             <Navbar />
             <Container id="main-container" className={styles.main_container}>
-                <h1>hola</h1>
                 {children}
             </Container>
             <Footer />
