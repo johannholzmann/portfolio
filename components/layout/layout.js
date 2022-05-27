@@ -3,28 +3,19 @@ import Link from 'next/link'
 import Navbar from "../navbar/navbar";
 import styles from "./layout.module.css";
 
-function Copyright() {
-    return (
-        <div>
-            {'Copyright © '}
-            <Link color="inherit" href="#">
-                Portfolio
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {''}
-        </div>
-    );
-}
+import Image from 'next/image'
+
+import Footer from '../footer/footer.js';
 
 const Layout = ({ children }) => {
     return (
         <div className={styles.app}>
             <Navbar />
-            <Container>
+            <Container id="main-container" className={styles.main_container}>
                 <h1>hola</h1>
                 {children}
             </Container>
-            <Copyright />
+            <Footer />
         </div>
     )
 }
