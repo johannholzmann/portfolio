@@ -5,7 +5,7 @@ import { ThemeProvider } from 'next-themes';
 import Layout from '../components/layout/layout.js';
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider>
+    <ThemeProvider defaultTheme='dark'>
       <Layout>
         <Component {...pageProps} />
       </Layout>
