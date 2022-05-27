@@ -3,7 +3,31 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 import { useState } from 'react';
-import { Button, Row } from 'react-bootstrap';
+import { Button, Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
+
+const renderTooltip = (props) => (
+  <Tooltip id="button-tooltip" {...props}>
+    Nao pode poseer menos da 0 pepas
+  </Tooltip>
+);
+
+
+const Overlay = ({ ButtonComponent }) => {
+  return (
+
+    <OverlayTrigger
+      placement="top"
+      delay={{ show: 0, hide: 0 }}
+      overlay={renderTooltip}
+    >
+      <Button variant="warning">
+        Menos
+        
+      </Button>
+    </OverlayTrigger>
+  )
+    ;
+}
 
 export default function Home() {
   const [pepas, setPepas] = useState(0);
@@ -20,17 +44,17 @@ export default function Home() {
       </h1>
 
       <h2>
-        Actualmente hay 
+        Actualmente hay
         {
           pepas == 1 ?
-          (` ${pepas} pepa`)
-          :
-          (` ${pepas} pepas`)
+            (` ${pepas} pepa`)
+            :
+            (` ${pepas} pepas`)
         }
       </h2>
-      <h3>
-        Queres mas pepas?
-      </h3>
+      <h4>
+        Segun los terminos y las condiciones dadas en el transcurso de la navegacion, ¿Desea mas pepas?
+      </h4>
       <Row>
         <Button onClick={() => setPepas((element) => element + 1)} variant="danger">
           Mas
@@ -41,9 +65,7 @@ export default function Home() {
       <Row>
         {
           pepas == 0 &&
-          <Button disabled variant="warning">
-            Menos
-          </Button>
+          <Overlay />
         }
         {
           pepas > 0 &&
@@ -54,28 +76,28 @@ export default function Home() {
       </Row>
       {
         /*
-
+    
       <main className={styles.main}>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-
+    
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
         </p>
-
+    
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
-
+    
           <a href="https://nextjs.org/learn" className={styles.card}>
             <h2>Learn &rarr;</h2>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
-
+    
           <a
             href="https://github.com/vercel/next.js/tree/canary/examples"
             className={styles.card}
@@ -83,7 +105,7 @@ export default function Home() {
             <h2>Examples &rarr;</h2>
             <p>Discover and deploy boilerplate example Next.js projects.</p>
           </a>
-
+    
           <a
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className={styles.card}
@@ -95,9 +117,9 @@ export default function Home() {
           </a>
         </div>
       </main>
-
+    
             */
       }
-    </div>
+    </div >
   )
 }
