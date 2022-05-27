@@ -1,5 +1,8 @@
 html {
-  
+  --max-width: 700px;
+  --height-footer: 69px;
+  --height-navbar: 76px;
+
 }
 
 body {
