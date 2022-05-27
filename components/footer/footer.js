@@ -8,13 +8,14 @@ import Image from 'next/image'
 
 function Footer() {
     return (
+        <div className={styles.footer_container}>
             <footer className={styles.footer}>
                 <Link href="#hola">
                     <a>
-                        {'Copyright © '}
-                        Portfolio
+                        {'Copyright © Portfolio '}
+                        
                         {new Date().getFullYear()}
-                        {''}
+                        {' '}
                         <span className={styles.logo}>
                             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
                         </span>
@@ -22,7 +23,7 @@ function Footer() {
                     </a>
                 </Link>
             </footer>
-        
+        </div>
     );
 }
 
