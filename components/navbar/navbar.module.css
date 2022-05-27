@@ -1,0 +1,20 @@
+.nav{
+
+    
+    height: 100px;
+    
+}
+
+.nav a {
+    /*
+    background-color: yellow;
+    */
+    color:inherit !important;
+}
+
+.pepa{
+    /*
+    color: inherit !important;
+    color:red !important;
+    */
+}
