@@ -1,6 +1,6 @@
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     Navbar,
     Container,
@@ -22,6 +22,12 @@ const NavLink = ({ reference, text }) => {
 }
 const NavbarComponent = ({ }) => {
     const { theme } = useTheme();
+    const [color, setColor] = useState();
+    useEffect(() => 
+    {
+        setColor(theme == "dark" ? "white" : "black");
+    }
+    , [theme]);
     const [isToggle, setIsToggle] = useState(false);
     return (
         <Navbar variant="dark" expand="sm" className={styles.nav}>
@@ -31,11 +37,11 @@ const NavbarComponent = ({ }) => {
             <Navbar.Toggle aria-controls="navbarScroll" onClick={() => setIsToggle(!isToggle)} >
                 {
                     !isToggle &&
-                    <MenuIcon theme={theme} />
+                    <MenuIcon color={color} />
                 }
                 {
                     isToggle &&
-                    <CrossIcon theme={theme} />
+                    <CrossIcon color={color} />
                 }
             </Navbar.Toggle>
             <Navbar.Collapse id="navbarScroll">
@@ -51,8 +57,7 @@ const NavbarComponent = ({ }) => {
 
 
 
-function MenuIcon({ theme }) {
-    const color = theme == "dark" ? "white" : "black";
+function MenuIcon({ color }) {
     return (
         <svg
             className={styles.menu_icon}
@@ -81,11 +86,9 @@ function MenuIcon({ theme }) {
 }
 
 
-function CrossIcon({ theme }) {
-    const color = theme == "dark" ? "white" : "black";
+function CrossIcon({ color }) {
     return (
         <svg
-            className="h-5 w-5 absolute text-gray-900 dark:text-gray-100"
             color={color}
             viewBox="0 0 24 24"
             width="24"
