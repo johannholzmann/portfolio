@@ -11,6 +11,10 @@
     }
 }
 
-.nav a {
-    color: inherit !important;
+.item > a {
+    color: var(--color-text-primary) ;
+}
+
+.brand{
+    color: var(--color-text-primary) !important; ;
 }
