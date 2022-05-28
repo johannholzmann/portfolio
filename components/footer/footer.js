@@ -1,4 +1,4 @@
-import { Col, Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Link from 'next/link';
 import styles from "./footer.module.css";
 
@@ -8,7 +8,15 @@ function Footer() {
     return (
         <div className={styles.footer_container}>
             <footer className={styles.footer}>
-                <Col sm={10} className={styles.col_data_footer}>
+                <Col>
+                    <a href="https://www.linkedin.com/in/johann-holzmann/" target="_blank">
+                        Linkedin
+                    </a>
+                    <a href="https://github.com/johannholzmann" target="_blank">
+                        Github
+                    </a>
+                </Col>
+                <Col sm={12} className={styles.col_data_footer}>
                     <Link href="#hola">
                         <a>
                             {'Copyright © Portfolio '}
