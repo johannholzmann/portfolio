@@ -1,27 +1,26 @@
-import { Container } from "react-bootstrap";
+import { Col, Container } from "react-bootstrap";
 import Link from 'next/link';
 import styles from "./footer.module.css";
 
-import Image from 'next/image'
-
-
+import Logo from "../logo/logo";
 
 function Footer() {
     return (
         <div className={styles.footer_container}>
             <footer className={styles.footer}>
-                <Link href="#hola">
-                    <a>
-                        {'Copyright © Portfolio '}
-                        
-                        {new Date().getFullYear()}
-                        {' '}
-                        <span className={styles.logo}>
-                            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-                        </span>
-                        {' '}
-                    </a>
-                </Link>
+                <Col sm={10} className={styles.col_data_footer}>
+                    <Link href="#hola">
+                        <a>
+                            {'Copyright © Portfolio '}
+                            {new Date().getFullYear()}
+                            {' '}
+                            <div className={styles.logo_container}>
+                                <Logo />
+                            </div>
+                            {' '}
+                        </a>
+                    </Link>
+                </Col>
             </footer>
         </div>
     );
