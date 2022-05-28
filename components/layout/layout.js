@@ -10,8 +10,11 @@ import Footer from '../footer/footer.js';
 const Layout = ({ children }) => {
     return (
         <div className={styles.app}>
+            <Container>
+
             <Navbar />
-            <Container id="main-container" className={styles.main_container}>
+            </Container>
+            <Container fluid id="main-container" className={styles.main_container}>
                 {children}
             </Container>
             <Footer />
