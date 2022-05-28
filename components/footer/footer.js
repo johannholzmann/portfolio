@@ -9,10 +9,10 @@ function Footer() {
         <div className={styles.footer_container}>
             <footer className={styles.footer}>
                 <Col>
-                    <a href="https://www.linkedin.com/in/johann-holzmann/" target="_blank">
+                    <a href="https://www.linkedin.com/in/johann-holzmann/" target="_blank" rel="noopener noreferrer">
                         Linkedin
                     </a>
-                    <a href="https://github.com/johannholzmann" target="_blank">
+                    <a href="https://github.com/johannholzmann" target="_blank" rel="noopener noreferrer">
                         Github
                     </a>
                 </Col>
