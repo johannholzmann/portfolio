@@ -45,27 +45,33 @@ const Example = ({ }) => {
             (` ${pepas} pepas`)
         }
       </h2>
+
       <h4>
         Segun los terminos y las condiciones dadas en el transcurso de la navegacion, ¿Desea mas pepas?
       </h4>
-      <Row>
-        <Button onClick={() => setPepas((element) => element + 1)} variant="danger">
-          Mas
-        </Button>
-      </Row>
-      <br />
-      <Row>
-        {
-          pepas == 0 &&
-          <Overlay />
-        }
-        {
-          pepas > 0 &&
-          <Button onClick={() => setPepas((element) => element - 1)} className={`height: 100px`} variant="warning">
-            Menos
+
+      <Container>
+        <Row>
+          <Button onClick={() => setPepas((element) => element + 1)} variant="danger">
+            Mas
           </Button>
-        }
-      </Row>
+        </Row>
+
+        <br />
+        
+        <Row>
+          {
+            pepas == 0 &&
+            <Overlay />
+          }
+          {
+            pepas > 0 &&
+            <Button onClick={() => setPepas((element) => element - 1)} className={`height: 100px`} variant="warning">
+              Menos
+            </Button>
+          }
+        </Row>
+      </Container>
     </Container>
   )
 }
