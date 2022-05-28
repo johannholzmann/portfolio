@@ -18,7 +18,17 @@
     background: red;
     */
     background: var(--color-bg-toggle);
+    transition: transform 0.5s;
+    /*
+    transform: scale(0.6);
+    -webkit-transition: transform 1.0s;
+    */
     
-    transition: all;
 
 }
+
+.toggle_button:active {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
