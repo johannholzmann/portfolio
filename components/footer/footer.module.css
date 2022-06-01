@@ -20,7 +20,6 @@
 }
 
 .footer_container {
-
     padding: 0 2rem;
     padding-left: 14px;
     padding-right: 14px;
@@ -28,4 +27,10 @@
 
 .logo_container {
     padding-left: 10px;
+}
+
+.col_views {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -3,11 +3,15 @@ import Link from 'next/link';
 import styles from "./footer.module.css";
 
 import Logo from "../logo/logo";
+import View from "../views/views";
 
 function Footer() {
     return (
         <div className={styles.footer_container}>
             <footer className={styles.footer}>
+                <Col sm={12} className={styles.col_views}>
+                    <View />
+                </Col>
                 <Col>
                     <a href="https://www.linkedin.com/in/johann-holzmann/" target="_blank" rel="noopener noreferrer">
                         Linkedin
