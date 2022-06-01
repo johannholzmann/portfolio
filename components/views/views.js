@@ -40,14 +40,14 @@ export default function View() {
     async function add_view() {
         await addView(123);
     }
-
+    
     if (!error) {
         return (
             <div>
                 {
                     data ?
                         (
-                            <h6>{data} visitas</h6>
+                            <a>{data} visitas</a>
                         )
                         :
                         (
