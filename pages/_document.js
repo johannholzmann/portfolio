@@ -9,8 +9,9 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
             rel="stylesheet"
           />
-
-          <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;700;800&display=swap" rel="stylesheet"></link>
+          <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;700;800&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />
