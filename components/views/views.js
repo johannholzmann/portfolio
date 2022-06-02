@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { addView, getViews } from "../../data/api";
 import useSwr from "swr";
 
 import { Spinner } from "react-bootstrap";
@@ -12,13 +11,15 @@ export default function View() {
     const [error, setError] = useState(false);
     const [color, setColor] = useState();
 
-    async function fetcher() {
-        await addView();
-        const views = await get_views();
-        return views;
+    async function fetcher(url) {
+        const views = await fetch(url, {
+            method: 'GET',
+        });
+        return await views.json();
     }
 
-    const { data } = useSwr(['api'], fetcher,{
+    const id = "Home";
+    const { data } = useSwr([`api/views/${id}`], fetcher,{
         revalidateOnFocus: false,
     });
 
@@ -28,19 +29,6 @@ export default function View() {
     }
     , [theme]);
 
-    async function get_views() {
-        const data = await getViews(1234);
-        if (data.status) {
-            return data.views;
-        }
-        else {
-            setError(true);
-        }
-    }
-    async function add_view() {
-        await addView(123);
-    }
-    
     if (!error) {
         return (
             <div>
