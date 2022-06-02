@@ -1,10 +1,9 @@
 .footer {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-top: 1px solid #eaeaea;
     border-top: 1px solid var(--color-text-primary);
-    border-top: 0.1em solid rgba(120, 120, 120, 0.5);
+    border-top: 0.01em solid rgba(120, 120, 120, 0.7);
     justify-content: center;
     align-items: center;
     height: auto;

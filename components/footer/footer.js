@@ -21,7 +21,7 @@ function Footer() {
                     <View />
                 </Col>
                 <Col sm={12} className={styles.col_data_footer}>
-                    <Link href="#hola">
+                    <Link href="/">
                         <a>
                             {'Copyright © Portfolio '}
                             {new Date().getFullYear()}
