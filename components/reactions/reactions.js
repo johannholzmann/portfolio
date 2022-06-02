@@ -57,7 +57,7 @@ export default function Reactions({ }) {
                     {
                         data.map(function (element, index) {
                             return (
-                                <Col xs={6} style={{ display: 'flex', justifyContent:'center' }}>
+                                <Col xs={6}  key={element.reaction} style={{ display: 'flex', justifyContent:'center' }}>
                                     <span>{emojis[element.reaction]}</span>
                                     <p >{element.count}</p>
                                 </Col>
