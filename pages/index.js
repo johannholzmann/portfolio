@@ -88,7 +88,7 @@ export default function Home() {
       </Head>
 
       <h1 className={styles.title}>
-        Benvenuti manito
+        ¡Bienvenidos!
       </h1>
       <br />
 
