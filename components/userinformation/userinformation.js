@@ -8,7 +8,7 @@ const InformationUser = ({ }) => {
 
       <Row>
         <Col sm={12} md={8}>
-          <h1 className={styles.h1_name}>Johann Holzmann</h1>
+          <h2 className={styles.h1_name}>Johann Holzmann</h2>
           <h4>Estudiante de Ingeniería en Computación en la Universidad Nacional del Sur</h4>
         </Col>
         <Col sm={12} md={4} style={{'justify-content':'center', 'align-items':'center', display:'flex'}}>
