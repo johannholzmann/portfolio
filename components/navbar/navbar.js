@@ -47,6 +47,8 @@ const NavbarComponent = ({ }) => {
             <Navbar.Collapse id="navbarScroll">
                 <Nav className={`me-auto ${styles.pepa}`} >
                     <NavLink reference="/" text="Home" />
+                    <NavLink reference="/reactions" text="Reactions" />
+                    <NavLink reference="/pepas" text="Pepas" />
                     <NavLink reference="/about" text="About" />
                 </Nav>
                 <ThemeToggle />
