@@ -7,27 +7,32 @@ import { useTheme } from "next-themes";
 
 
 export default function View() {
-    const {theme} = useTheme();
+    const { theme } = useTheme();
     const [error, setError] = useState(false);
     const [color, setColor] = useState();
 
     async function fetcher(url) {
-        const views = await fetch(url, {
-            method: 'GET',
-        });
-        return await views.json();
+        try {
+            const res = await fetch(url, {
+                method: 'GET',
+            });
+            const views = await res.json();
+            return views;
+        }
+        catch (error) {
+            setError(true);
+        }
     }
 
     const id = "Home";
-    const { data } = useSwr([`api/views/${id}`], fetcher,{
+    const { data } = useSwr([`api/views/${id}`], fetcher, {
         revalidateOnFocus: false,
     });
 
-    useEffect(() => 
-    {
+    useEffect(() => {
         setColor(theme == "dark" ? "white" : "black");
     }
-    , [theme]);
+        , [theme]);
 
     if (!error) {
         return (
@@ -35,11 +40,11 @@ export default function View() {
                 {
                     data ?
                         (
-                            <a>{data} visitas</a>
+                            <a>{data} visitas al sitio</a>
                         )
                         :
                         (
-                            <Spinner animation="border"  style={{color: color}} />
+                            <Spinner animation="border" style={{ color: color }} />
                         )
                 }
             </div>
