@@ -1,3 +1,9 @@
+.footer_container {
+    padding: 0 2rem;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
 .footer {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -8,7 +14,6 @@
     align-items: center;
     height: auto;
     height: var(--height-footer);
-
 }
 
 .footer a {
@@ -18,17 +23,13 @@
     flex-grow: 1;
 }
 
-.footer_container {
-    padding: 0 2rem;
-    padding-left: 14px;
-    padding-right: 14px;
-}
-
-.logo_container {
-    padding-left: 10px;
-}
-
 .col_views {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col_copyright {
     display: flex;
     justify-content: center;
     align-items: center;
