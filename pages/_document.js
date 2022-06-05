@@ -12,6 +12,8 @@ class MyDocument extends Document {
           <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;700;800&display=swap"
             rel="stylesheet"
           />
+          <meta name="description" content="Portfolio - Johann Holzmann"></meta>
+          <meta property="image" content="./avatar.png"></meta>
         </Head>
         <body>
           <Main />
