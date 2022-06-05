@@ -33,8 +33,10 @@ const Example = ({ }) => {
         if (localStorage) {
             const existPepas = localStorage.getItem(KEY_PEPAS);
             if (initial) {
-                if (existPepas)
-                    setPepas(parseInt(existPepas));
+                if (existPepas) {
+                    const newPepas = parseInt(existPepas);
+                    setPepas(newPepas ? newPepas : 0);
+                }
                 else
                     localStorage.setItem(KEY_PEPAS, pepas);
                 setInitial(false);
