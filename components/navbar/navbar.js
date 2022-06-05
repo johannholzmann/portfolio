@@ -49,7 +49,6 @@ const NavbarComponent = ({ }) => {
                     <NavLink reference="/" text="Home" />
                     <NavLink reference="/reactions" text="Reactions" />
                     <NavLink reference="/pepas" text="Pepas" />
-                    <NavLink reference="/about" text="About" />
                 </Nav>
                 <ThemeToggle />
             </Navbar.Collapse>
