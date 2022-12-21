@@ -1,12 +1,5 @@
-
-import dynamic from "next/dynamic"
 import Image from "next/image"
 import { Container } from "react-bootstrap"
-
-const PDFViewer = dynamic(() => import("../../components/pdf/pdf"),
-    {
-        ssr: false
-    })
 
 export default function CV({ }) {
     return (
