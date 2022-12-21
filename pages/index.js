@@ -12,7 +12,6 @@ import Pepas from "../components/pepas/index.js";
 
 
 export default function Home() {
-
   return (
     <div className={styles.container}>
       <Head>
@@ -21,7 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className={styles.title}>
+      <h1 style={{ textAlign: "center" }}>
         ¡Bienvenidos!
       </h1>
       <br />
