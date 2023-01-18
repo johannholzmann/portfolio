@@ -28,10 +28,9 @@ export default async function handle(req, res) {
             throw new Error("Not exists record");
 
         output = ret;
-
     }
     catch (error) {
-        //console.log("Error: ", error);
+        // console.log("Error: ", error);
     }
     return res.json(output);
 }
