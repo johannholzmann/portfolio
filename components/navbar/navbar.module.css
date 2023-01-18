@@ -18,3 +18,8 @@
 .brand{
     color: var(--color-text-primary) !important; ;
 }
+
+.menu{
+    margin-left: auto;
+    margin-right: auto;
+}
