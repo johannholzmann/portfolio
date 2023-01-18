@@ -5,7 +5,6 @@ import { Spinner } from "react-bootstrap";
 
 import { useTheme } from "next-themes";
 
-
 export default function View() {
     const { theme } = useTheme();
     const [error, setError] = useState(false);
@@ -25,7 +24,7 @@ export default function View() {
     }
 
     const id = "Home";
-    const { data } = useSwr([`api/views/${id}`], fetcher, {
+    const { data: views} = useSwr([`api/views/${id}`], fetcher, {
         revalidateOnFocus: false,
     });
 
@@ -38,9 +37,9 @@ export default function View() {
         return (
             <div>
                 {
-                    data ?
+                    views ?
                         (
-                            <a>{data} visitas al sitio</a>
+                            <a>{views} {views == 1 ? "visita" : "visitas"} al sitio</a>
                         )
                         :
                         (
