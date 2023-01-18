@@ -65,7 +65,7 @@ const Example = ({ }) => {
             </h2>
 
             <h4>
-                Segun los terminos y las condiciones dadas en el transcurso de la navegacion, ¿Desea mas pepas?
+                Según los términos y las condiciones dadas en el transcurso de la navegación, ¿Desea más pepas?
             </h4>
 
             <Container>
