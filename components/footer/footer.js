@@ -1,7 +1,5 @@
-import Link from 'next/link';
 import styles from "./footer.module.css";
 
-import Logo from "../logo/logo";
 import View from "../views/views";
 import React from "react";
 import Image from 'next/image';

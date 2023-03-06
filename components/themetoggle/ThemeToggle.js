@@ -1,8 +1,6 @@
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react';
 
-import styles from './themetoggle.module.css'
-
 const ThemeChanger = () => {
   const { theme, setTheme } = useTheme()
   const [icon, setIcon] = useState("");
@@ -12,7 +10,7 @@ const ThemeChanger = () => {
   }, [theme]);
 
   return (
-    <button className={styles.toggle_button} type="buton" onClick={() => setTheme(theme == 'dark' ? 'light' : 'dark')}>
+    <button className={`text-2xl hover:animate-spin`} type="buton" onClick={() => setTheme(theme == 'dark' ? 'light' : 'dark')}>
       <span>{icon}</span>
     </button>
   )

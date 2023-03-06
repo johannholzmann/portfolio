@@ -1,7 +1,7 @@
-import { useTheme } from "next-themes";
 import { useState } from "react";
 import useSWR from "swr";
 import Spinner from "../spinner";
+
 const emojis = {
     THUMBS_UP: "👍",
     THUMBS_DOWN: '👎',
