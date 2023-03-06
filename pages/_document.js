@@ -15,7 +15,7 @@ class MyDocument extends Document {
           <meta name="description" content="Portfolio - Johann Holzmann"></meta>
           <meta property="image" content="./avatar.png"></meta>
         </Head>
-        <body>
+        <body className='dark:from-black dark:to-orange-400 from-white to-orange-300  to-blue-90s0 bg-gradient-to-b'>
           <Main />
           <NextScript />
         </body>
