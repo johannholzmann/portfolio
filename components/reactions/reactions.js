@@ -51,7 +51,7 @@ export default function Reactions({ }) {
             {
                 !initialLoading &&
                 data &&
-                <div className="grid grid-cols-2 max-w-md w-full gap-y-2 border rounded-3xl p-8 ">
+                <div className="grid grid-cols-2 max-w-md w-full gap-y-2 border border-gray-900 dark:border-gray-400 rounded-3xl p-8 ">
                     {
                         data.map(function (element, index) {
                             return (
