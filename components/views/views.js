@@ -1,14 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useSwr from "swr";
-
-import { Spinner } from "react-bootstrap";
-
-import { useTheme } from "next-themes";
+import Spinner from "../spinner";
 
 export default function View() {
-    const { theme } = useTheme();
     const [error, setError] = useState(false);
-    const [color, setColor] = useState();
 
     async function fetcher(url) {
         try {
@@ -24,14 +19,9 @@ export default function View() {
     }
 
     const id = "Home";
-    const { data: views} = useSwr([`api/views/${id}`], fetcher, {
+    const { data: views } = useSwr([`api/views/${id}`], fetcher, {
         revalidateOnFocus: false,
     });
-
-    useEffect(() => {
-        setColor(theme == "dark" ? "white" : "black");
-    }
-        , [theme]);
 
     if (!error) {
         return (
@@ -43,7 +33,7 @@ export default function View() {
                         )
                         :
                         (
-                            <Spinner animation="border" style={{ color: color }} />
+                            <Spinner />
                         )
                 }
             </div>

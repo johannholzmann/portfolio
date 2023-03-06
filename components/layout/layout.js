@@ -1,22 +1,14 @@
-import { Container } from "react-bootstrap";
-import Link from 'next/link'
 import Navbar from "../navbar/navbar";
-import styles from "./layout.module.css";
-
-import Image from 'next/image'
 
 import Footer from '../footer/footer.js';
 
 const Layout = ({ children }) => {
     return (
-        <div className={styles.app}>
-            <Container>
-
+        <div className="max-w-2xl mx-4 sm:mx-auto flex flex-col min-h-screen text-black dark:text-white">
             <Navbar />
-            </Container>
-            <Container fluid id="main-container" className={styles.main_container}>
+            <div className="flex-1 my-2 text-center">
                 {children}
-            </Container>
+            </div>
             <Footer />
         </div>
     )

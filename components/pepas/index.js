@@ -1,30 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Button, Col, Container, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
-import styles from "./index.module.css";
 
 const KEY_PEPAS = "pepas";
-
-const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-        Nao pode poseer menos da 0 pepas
-    </Tooltip>
-);
-
-
-const Overlay = ({ ButtonComponent }) => {
-    return (
-        <OverlayTrigger
-            placement="top"
-            delay={{ show: 0, hide: 0 }}
-            overlay={renderTooltip}
-        >
-            <Button variant="warning">
-                Menos
-            </Button>
-        </OverlayTrigger>
-    )
-        ;
-}
 
 const Example = ({ }) => {
     const [pepas, setPepas] = useState(0);
@@ -53,8 +29,8 @@ const Example = ({ }) => {
     }
 
     return (
-        <Container className={styles.example_container}>
-            <h2>
+        <div className="flex flex-col gap-y-2 opacity-80 hover:opacity-100 duration-500 hover:scale-[102%]">
+            <div className="text-3xl">
                 Actualmente hay
                 {
                     pepas == 1 ?
@@ -62,35 +38,29 @@ const Example = ({ }) => {
                         :
                         (` ${pepas} pepas`)
                 }
-            </h2>
+            </div>
 
-            <h4>
+            <div className="text-2xl">
                 Según los términos y las condiciones dadas en el transcurso de la navegación, ¿Desea más pepas?
-            </h4>
+            </div>
 
-            <Container>
-                <Row>
-                    <Button onClick={() => callback(1)} variant="danger">
-                        Mas
-                    </Button>
-                </Row>
+            <div>
+                <button onClick={() => callback(1)} className="btn-danger w-full">
+                    Mas
+                </button>
 
                 <br />
-
-                <Row>
-                    {
-                        pepas == 0 &&
-                        <Overlay />
-                    }
-                    {
-                        pepas > 0 &&
-                        <Button onClick={() => callback(-1)} className={`height: 100px`} variant="warning">
-                            Menos
-                        </Button>
-                    }
-                </Row>
-            </Container>
-        </Container>
+                {
+                    pepas >= 0 &&
+                    <button 
+                    onClick={() => callback(-1)} 
+                    disabled={pepas <= 0} 
+                    className={`btn-warning height: 100px w-full`}>
+                        Menos
+                    </button>
+                }
+            </div>
+        </div>
     )
 }
 
