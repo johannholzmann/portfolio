@@ -31,6 +31,7 @@ export default async function handle(req, res) {
     }
     catch (error) {
         // console.log("Error: ", error);
+        return res.status(404).send({ error: "Ocurrio un error" });
     }
     return res.json(output);
 }
