@@ -12,17 +12,17 @@ function Footer() {
                 <div style={{ backgroundColor: 'sa', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <div xs={2} sm={1}>
                         <a href="https://www.linkedin.com/in/johann-holzmann/" target="_blank" rel="noopener noreferrer">
-                            <Image src="/icons8-linkedin-circled-240.png" width={width_icons} height={width_icons} />
+                            <Image alt="Linkedin icon" src="/icons8-linkedin-circled-240.png" width={width_icons} height={width_icons} />
                         </a>
                     </div>
                     <div xs={2} sm={1}>
                         <a href="https://github.com/johannholzmann" target="_blank" rel="noopener noreferrer">
-                            <Image src="/icons8-github-240.png" width={width_icons} height={width_icons} />
+                            <Image alt="Github icon"src="/icons8-github-240.png" width={width_icons} height={width_icons} />
                         </a>
                     </div>
                     <div xs={2} sm={1}>
                         <a href="mailto:johannholzmann@hotmail.com" target="_blank" rel="noopener noreferrer">
-                            <Image src="/icons8-envelope-96.png" width={width_icons} height={width_icons} />
+                            <Image alt="Mail icon"src="/icons8-envelope-96.png" width={width_icons} height={width_icons} />
                         </a>
                     </div>
                 </div>

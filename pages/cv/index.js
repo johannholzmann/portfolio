@@ -28,7 +28,7 @@ export default function CV({ }) {
             </div>
             <br />
             <div style={{ display: "flex", justifyContent: "center" }}>
-                <Image src={"/cv/CV.png"} width={1414} height={2000} />
+                <Image src={"/cv/CV.png"} alt="Curriculum Vitae" width={1414} height={2000} />
             </div>
 
         </div>

@@ -4,6 +4,6 @@ export default function Avatar() {
     let width = 1447;
     width = 350;
     return (
-        <Image src="/avatar.png" alt="Avatar" width={width} height={width} className="bg-red-500 rounded-[50%]"  />
+        <Image src="/avatar.png" alt="Avatar" width={width} height={width} className="rounded-[50%]" priority={true}/>
     );
 }
