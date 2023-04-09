@@ -1,25 +1,20 @@
-import { useState } from "react";
 import useSwr from "swr";
 import Spinner from "../spinner";
 
+async function fetcher(url) {
+    const res = await fetch(url, {
+        method: 'GET',
+    });
+    if (!res.ok)
+        throw new Error("Error al obtener vistas")
+
+    const views = await res.json();
+    return views;
+}
+
 export default function View() {
-    const [error, setError] = useState(false);
-
-    async function fetcher(url) {
-        try {
-            const res = await fetch(url, {
-                method: 'GET',
-            });
-            const views = await res.json();
-            return views;
-        }
-        catch (error) {
-            setError(true);
-        }
-    }
-
     const id = "Home";
-    const { data: views } = useSwr([`api/views/${id}`], fetcher, {
+    const { data: views, error } = useSwr([`api/views/${id}`], fetcher, {
         revalidateOnFocus: false,
     });
 
@@ -42,7 +37,7 @@ export default function View() {
 
     return (
         <div>
-            <p1>No pudimos obtener la cantidad de visitas</p1>
+            <p>No pudimos obtener la cantidad de visitas</p>
         </div>
     );
 }
