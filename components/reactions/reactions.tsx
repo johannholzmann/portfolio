@@ -3,6 +3,7 @@
 import { useState } from "react";
 import useSWR from "swr";
 import Spinner from "../spinner";
+import { Reaction } from "@/types/reactions";
 
 const emojis = {
     THUMBS_UP: "👍",
@@ -15,9 +16,11 @@ const emojis = {
     EYES: "👀",
 }
 
+type EmojiKey = keyof typeof emojis;
+
 export default function Reactions({ }) {
     const [initialLoading, setInitialLoading] = useState(true);
-    async function fetcher() {
+    async function fetcher(): Promise<Reaction[] | null> {
         try {
             const res = await fetch("api/reactions", {
                 method: 'GET',
@@ -55,12 +58,14 @@ export default function Reactions({ }) {
                 <div className="grid grid-cols-2 max-w-md w-full gap-y-2 border border-gray-900 dark:border-gray-400 rounded-3xl p-8 ">
                     {
                         data.map(function (element, index) {
-                            return (
-                                <div key={index} className="flex justify-center">
-                                    <span>{emojis[element.reaction]}</span>
-                                    <p >{element.count}</p>
-                                </div>
-                            );
+                            if (element.reaction in emojis) {
+                                return (
+                                    <div key={index} className="flex justify-center">
+                                        <span>{emojis[element.reaction as EmojiKey]}</span>
+                                        <p >{element.count}</p>
+                                    </div>
+                                );
+                            }
                         })
                     }
                 </div>

@@ -1,5 +1,6 @@
 export const dynamic = 'force-dynamic' // defaults to auto
 
+import { Reaction } from "@/types/reactions";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -32,10 +33,7 @@ export async function GET(request: NextRequest) {
         if (status != 200)
             throw new Error("Not found");
         const reactionGroup = json?.data?.repository?.issue?.reactionGroups;
-        const array: {
-            reaction: string,
-            count: number
-        }[] = [];
+        const array: Reaction[] = [];
 
         reactionGroup.map((element: any) => {
             array.push({
