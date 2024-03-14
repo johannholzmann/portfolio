@@ -31,3 +31,4 @@ yarn-error.log*
 # vercel
 .vercel
 public/IMG_7160.png
+.env

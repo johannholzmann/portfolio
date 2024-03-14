@@ -11,8 +11,10 @@ datasource db {
 }
 
 model Views {
-  id    String  @db.VarChar(55)  @unique
-  count Int  @default(1)
+  ip        String
+  lastVisit DateTime @default(now())
+  views     Int      @default(1)
 
+  @@unique([ip])
   @@map("views")
 }
