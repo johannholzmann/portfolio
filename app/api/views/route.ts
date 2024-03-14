@@ -51,6 +51,7 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ views: res })
     }
     catch (error) {
+        console.log("error", error);
     }
     return NextResponse.json({ error: 'Error' }, { status: 404 })
 }
