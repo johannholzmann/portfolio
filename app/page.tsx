@@ -1,11 +1,5 @@
-import { Metadata } from 'next';
 import Logo from '@/components/logo/logo';
 import UserInformation from '@/components/userinformation/userinformation';
-
-export const metadata: Metadata = {
-  title: "Johann Portfolio",
-  description: "Johann Portfolio",
-};
 
 export default function Home() {
   return (
