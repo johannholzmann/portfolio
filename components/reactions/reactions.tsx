@@ -17,9 +17,9 @@ const emojis = {
 
 export default function Reactions({ }) {
     const [initialLoading, setInitialLoading] = useState(true);
-    async function fetcher(url) {
+    async function fetcher() {
         try {
-            const res = await fetch(url, {
+            const res = await fetch("api/reactions", {
                 method: 'GET',
             });
             if (res.status == 404)
