@@ -1,28 +1,23 @@
-"use client";
-
-import useSWR from "swr";
 import Spinner from "../spinner";
 
-async function fetcher(): Promise<{ views: number }> {
-    const res = await fetch(`api/views/`, {
+async function fetcher(): Promise<{ views: number } | null> {
+    const res = await fetch(`${process.env.VERCEL_URL}/api/views/`, {
         method: 'GET',
     });
     if (!res.ok)
-        throw new Error("Error al obtener vistas")
+        return null;
     const views = await res.json();
     return views;
 }
 
-export default function View() {
-    const { data: views, error } = useSWR([`api/views/`], fetcher, {
-        revalidateOnFocus: false,
-    });
-    if (!error) {
+export default async function View() {
+    const data = await fetcher();
+    if (data) {
         return (
             <div className="flex justify-center">
                 {
-                    views ?
-                        <span>{views.views} {views.views == 1 ? "visita" : "visitas"} al sitio</span>
+                    data ?
+                        <span>{data.views} {data.views == 1 ? "visita" : "visitas"} al sitio</span>
                         :
                         <Spinner />
                 }
