@@ -10,13 +10,13 @@ const technologies = [
         ]
     },
     {
-        title: "Frameworks PHP",
+        title: "PHP",
         techs: [
             "Laravel",
         ]
     },
     {
-        title: "Bases de datos",
+        title: "Base de datos",
         techs: [
             "MySQL",
             "PostgreSQL",
@@ -25,15 +25,14 @@ const technologies = [
     {
         title: "Otros lenguajes",
         techs: [
-            "PHP",
             "Python",
+            "Tailwind CSS",
             "C",
             "C#",
             "C++",
             "HTML",
             "JS",
             "CSS",
-            "Tailwind CSS",
         ]
     },
 ]
