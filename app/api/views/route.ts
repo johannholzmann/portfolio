@@ -9,7 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest) {
     try {
         const prisma = new PrismaClient();
-        const headersList = headers();
+        const headersList = await headers();
         const ip = headersList.get("x-forwarded-for");
         const encryptedIp = getEncryptedIP(ip ?? "127.0.0.1");
 

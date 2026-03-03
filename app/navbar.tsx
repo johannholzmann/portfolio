@@ -10,16 +10,13 @@ const navItems = {
         name: "Inicio",
     },
     "cv": {
-        name: "Curriculum",
+        name: "Currículum",
     },
     "tecnologias": {
-        name: "Tecnologias",
+        name: "Tecnologías",
     },
     "reactions": {
         name: "Reacciones",
-    },
-    "pepas": {
-        name: "Pepas",
     },
 }
 
