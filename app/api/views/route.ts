@@ -44,17 +44,12 @@ export async function GET(request: NextRequest) {
                 }
             })
 
-        const views = await prisma.views.aggregate({
-            _sum: {
-                views: true
-            }
-        });
-        const res = views._sum.views;
-        console.log("todo ok");
-        return NextResponse.json({ views: res })
+        const views = await prisma.views.count();
+        return NextResponse.json({
+            views: views
+        })
     }
     catch (error) {
-        console.log("error");
         console.log(error);
     }
     return NextResponse.json({ error: 'Error' }, { status: 404 })
