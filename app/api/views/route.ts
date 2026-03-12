@@ -28,7 +28,8 @@ export async function GET(request: NextRequest) {
                 createView = false;
         }
 
-        if (createView)
+        if (createView) {
+
             await prisma.views.upsert({
                 where: {
                     ip: encryptedIp
@@ -44,6 +45,17 @@ export async function GET(request: NextRequest) {
                     lastVisit: new Date()
                 }
             })
+        }
+        else {
+            await prisma.views.update({
+                where: {
+                    ip: encryptedIp
+                },
+                data: {
+                    lastVisit: new Date()
+                }
+            })
+        }
 
         const views = await prisma.views.aggregate({
             _sum: {
