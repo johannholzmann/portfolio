@@ -40,7 +40,8 @@ export async function GET(request: NextRequest) {
                 update: {
                     views: {
                         increment: 1
-                    }
+                    },
+                    lastVisit: new Date()
                 }
             })
 
