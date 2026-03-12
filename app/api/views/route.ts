@@ -50,11 +50,9 @@ export async function GET(request: NextRequest) {
             }
         });
         const res = views._sum.views;
-        console.log("todo ok");
         return NextResponse.json({ views: res })
     }
     catch (error) {
-        console.log("error");
         console.log(error);
     }
     return NextResponse.json({ error: 'Error' }, { status: 404 })
