@@ -1,22 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "@/components/themetoggle/theme_toggle";
 
 const navItems = {
-  "": {
+  "#hero": {
     name: "Inicio",
+  },
+  "#educacion": {
+    name: "Educacion",
+  },
+  "#experiencia": {
+    name: "Experiencia",
+  },
+  "#proyectos": {
+    name: "Proyectos",
   },
   cv: {
     name: "Curriculum",
-  },
-  tecnologias: {
-    name: "Tecnologias",
-  },
-  reactions: {
-    name: "Reacciones",
   },
 };
 
@@ -83,8 +86,22 @@ const LinkItem = ({
   item: string;
 }) => {
   const pathname = usePathname();
-  const linkRef = "/" + reference;
-  const isActive = pathname == linkRef;
+  const [activeHash, setActiveHash] = useState("");
+  const isAnchor = reference.startsWith("#");
+
+  useEffect(() => {
+    const syncHash = () => setActiveHash(window.location.hash || "#hero");
+
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, []);
+
+  const linkRef = isAnchor ? `/${reference}` : `/${reference}`;
+  const isActive = isAnchor
+    ? pathname === "/" && activeHash === reference
+    : pathname === linkRef;
 
   return (
     <Link

@@ -60,7 +60,10 @@ export default function Home() {
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[38rem] bg-[radial-gradient(circle_at_top_left,_rgba(125,211,252,0.22),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(249,115,22,0.18),_transparent_28%),linear-gradient(180deg,_#060816_0%,_#0b1023_46%,_#160b1e_100%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-24 -z-10 mx-auto h-80 max-w-6xl bg-[radial-gradient(circle,_rgba(59,130,246,0.12),_transparent_62%)] blur-3xl" />
 
-      <section className="grid gap-10 rounded-[2rem] border border-white/10 bg-slate-950/60 px-6 py-8 shadow-[0_30px_120px_rgba(3,7,18,0.65)] backdrop-blur md:grid-cols-[minmax(0,1fr)_280px] md:px-10 md:py-10">
+      <section
+        id="hero"
+        className="scroll-mt-28 grid gap-10 rounded-[2rem] border border-white/10 bg-slate-950/60 px-6 py-8 shadow-[0_30px_120px_rgba(3,7,18,0.65)] backdrop-blur md:grid-cols-[minmax(0,1fr)_280px] md:px-10 md:py-10"
+      >
         <div className="space-y-6">
           <div className={`${displayFont.className} inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-2 text-sm uppercase tracking-[0.35em] text-amber-200`}>
             Open to work
@@ -125,7 +128,10 @@ export default function Home() {
 
       <div className="mt-10 space-y-10">
         <SectionTitle title="Educacion" />
-        <section className="grid gap-6 lg:grid-cols-[180px_minmax(0,1fr)]">
+        <section
+          id="educacion"
+          className="scroll-mt-28 grid gap-6 lg:grid-cols-[180px_minmax(0,1fr)]"
+        >
           <p className={`${displayFont.className} text-sm uppercase tracking-[0.3em] text-amber-200`}>
             2015 - 2020
           </p>
@@ -158,7 +164,7 @@ export default function Home() {
         </section>
 
         <SectionTitle title="Experiencia" />
-        <section className="space-y-8">
+        <section id="experiencia" className="scroll-mt-28 space-y-8">
           <p className="text-sm text-slate-400">
             Trayectoria actual y experiencia previa. Parte del contenido sigue
             mockeado por ahora.
@@ -199,7 +205,7 @@ export default function Home() {
         </section>
 
         <SectionTitle title="Proyectos" />
-        <section className="space-y-6">
+        <section id="proyectos" className="scroll-mt-28 space-y-6">
           <p className="text-sm text-slate-400">
             Una seleccion de trabajos reales y conceptuales.
           </p>
