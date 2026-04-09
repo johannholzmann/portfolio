@@ -9,12 +9,13 @@ export function generateStaticParams() {
   return Object.keys(caseStudies).map((slug) => ({ slug }));
 }
 
-export default function CaseStudyPage({
+export default async function CaseStudyPage({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string } | Promise<{ slug: string }>;
 }) {
-  const caseStudy = getCaseStudy(params.slug);
+  const { slug } = await Promise.resolve(params);
+  const caseStudy = getCaseStudy(slug);
   if (!caseStudy) notFound();
 
   return (
