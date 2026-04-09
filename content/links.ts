@@ -7,3 +7,5 @@ export const emailHref = `mailto:${emailAddress}`;
 export const cvHref = "/cv";
 export const cvPdfHref = "/cv/CV - Holzmann Johann.pdf";
 
+export const oldPortfolioUrl = "https://johann-old.vercel.app/";
+

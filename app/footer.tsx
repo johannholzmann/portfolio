@@ -1,6 +1,6 @@
 import Image from "next/image";
 import View from "@/components/views/views";
-import { emailHref, githubUrl, linkedinUrl } from "@/content/links";
+import { emailHref, githubUrl, linkedinUrl, oldPortfolioUrl } from "@/content/links";
 
 const widthIcons = 44;
 
@@ -49,6 +49,16 @@ function Footer() {
             width={widthIcons}
             height={widthIcons}
           />
+        </a>
+      </div>
+      <div className="mt-3">
+        <a
+          href={oldPortfolioUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-slate-400 underline underline-offset-4 transition hover:text-slate-200"
+        >
+          Ver versión OG del portfolio
         </a>
       </div>
       <View />
