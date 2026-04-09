@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import ThemeToggle from "@/components/themetoggle/theme_toggle";
 import { cvHref, githubUrl, linkedinUrl } from "@/content/links";
 
 const navItems = {
@@ -140,7 +139,6 @@ export default function Navbar() {
               />
             </a>
           </div>
-          <ThemeToggle />
           <button
             onClick={() => setHiddenNav(!hiddenNav)}
             data-collapse-toggle="mobile-menu-2"
