@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import Navbar from "./navbar";
@@ -20,12 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${font.className} text-center dark:from-black dark:to-[#0c0c0c] bg-gradient-to-b from-white to-orange-100 min-h-screen mx-auto flex flex-col items-center text-black dark:text-white`}>
+      <body className={`${font.className} min-h-screen bg-[#060816] text-slate-100`}>
         <Providers>
-          <div className="w-full dark:bg-[#070707] bg-[#f7f7f7] sticky top-0 z-40 border-b dark:border-[#1d1d1f] border-[#c7c3c3]">
+          <div className="sticky top-0 z-40 w-full border-b border-white/10 bg-[#060816]/80 backdrop-blur">
             <Navbar />
           </div>
-          <main className='flex-1 my-4 flex flex-col gap-y-4 items-center max-w-4xl w-full'>
+          <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-6 md:px-6">
             {children}
           </main>
           <Footer />
