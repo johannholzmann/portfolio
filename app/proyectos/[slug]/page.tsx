@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { caseStudies, getCaseStudy } from "@/content/projects";
+import ScrollSnapCarousel from "@/components/carousel/scroll_snap_carousel";
 
 export const dynamicParams = false;
 
@@ -58,30 +58,7 @@ export default async function CaseStudyPage({
       {caseStudy.images.length ? (
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-slate-100">Imágenes</h2>
-          <div className="grid gap-4 md:grid-cols-2">
-            {caseStudy.images.map((img) => (
-              <figure
-                key={img.src}
-                className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]"
-              >
-                <div className="relative aspect-[16/10] w-full">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover"
-                    quality={100}
-                  />
-                </div>
-                {img.caption ? (
-                  <figcaption className="px-4 py-3 text-sm text-slate-400">
-                    {img.caption}
-                  </figcaption>
-                ) : null}
-              </figure>
-            ))}
-          </div>
+          <ScrollSnapCarousel images={caseStudy.images} />
         </section>
       ) : null}
 
