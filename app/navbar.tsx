@@ -11,7 +11,7 @@ const navItems = {
     name: "Inicio",
   },
   "#educacion": {
-    name: "Educacion",
+    name: "Educación",
   },
   "#experiencia": {
     name: "Experiencia",
@@ -20,7 +20,7 @@ const navItems = {
     name: "Proyectos",
   },
   cv: {
-    name: "Curriculum",
+    name: "Currículum",
   },
 };
 
