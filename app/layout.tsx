@@ -9,8 +9,8 @@ import { Analytics } from "@vercel/analytics/react"
 const font = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Johann Portfolio",
-  description: "Johann Portfolio",
+  title: "Johann Holzmann Portfolio",
+  description: "Johann Holzmann Portfolio",
 };
 
 export default function RootLayout({

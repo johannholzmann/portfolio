@@ -1,16 +1,19 @@
 import Image from "next/image";
 import View from "@/components/views/views";
+import { emailHref, githubUrl, linkedinUrl } from "@/content/links";
 
-const widthIcons = 50;
+const widthIcons = 44;
 
 function Footer() {
   return (
     <footer className="mx-auto mt-10 w-full max-w-6xl border-t border-white/10 px-4 pb-6 pt-8 text-center text-sm text-slate-400 sm:px-6">
-      <div className="flex justify-center gap-2">
+      <div className="flex justify-center gap-3">
         <a
-          href="https://www.linkedin.com/in/johann-holzmann/"
+          href={linkedinUrl}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="rounded-xl p-1 transition hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-sky-400/30"
         >
           <Image
             alt="Linkedin icon"
@@ -20,9 +23,11 @@ function Footer() {
           />
         </a>
         <a
-          href="https://github.com/johannholzmann"
+          href={githubUrl}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="GitHub"
+          className="rounded-xl p-1 transition hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-sky-400/30"
         >
           <Image
             alt="Github icon"
@@ -32,9 +37,11 @@ function Footer() {
           />
         </a>
         <a
-          href="mailto:johannholzmann@hotmail.com"
+          href={emailHref}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Email"
+          className="rounded-xl p-1 transition hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-sky-400/30"
         >
           <Image
             alt="Mail icon"

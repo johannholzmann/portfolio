@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
+import { getHomeContent } from "@/lib/home-content";
+import { cvHref, emailHref, githubUrl, linkedinUrl } from "@/content/links";
 
 const displayFont = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -12,49 +14,9 @@ const bodyFont = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const experience = [
-  {
-    period: "2023 - Actualidad",
-    role: "Aprendiz Front End",
-    company: "Programacion mock",
-    summary:
-      "Modernizo interfaces, construyo experiencias claras y sostengo una base tecnica mantenible con foco real en producto.",
-    stack: ["Next.js", "Tailwind CSS", "TypeScript"],
-  },
-  {
-    period: "2021 - 2023",
-    role: "Soporte tecnico a usuarios",
-    company: "Universidad Nacional del Sur",
-    summary:
-      "Resolvi incidencias, acompanhe usuarios y ordene procesos para que la tecnologia fuese mas confiable y facil de usar.",
-    stack: ["Soporte", "Sistemas", "Usuarios"],
-  },
-];
+export default async function Home() {
+  const { education, experience, projects } = await getHomeContent();
 
-const projects = [
-  {
-    title: "Hoteleria Hospitalaria",
-    description:
-      "Proyecto final de carrera orientado a la gestion hospitalaria, con foco en accesibilidad, trazabilidad y claridad operativa.",
-    github: "https://github.com/johannholzmann",
-    website: "https://github.com/johannholzmann",
-    accent: "from-cyan-400/40 via-sky-500/20 to-transparent",
-    label: "Hospitality system",
-    tags: ["Next.js", "UX", "Arquitectura", "Accesibilidad"],
-  },
-  {
-    title: "Portfolio Metrics Dashboard",
-    description:
-      "Concepto para visualizar rendimiento, actividad y avance de proyectos con una capa visual mas expresiva y orientada a producto.",
-    github: "https://github.com/johannholzmann",
-    website: "https://github.com/johannholzmann",
-    accent: "from-fuchsia-500/35 via-violet-500/20 to-transparent",
-    label: "Metrics dashboard",
-    tags: ["Analytics", "UI Systems", "React", "Data Viz"],
-  },
-];
-
-export default function Home() {
   return (
     <div className={`${bodyFont.className} relative w-full overflow-hidden`}>
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[38rem] bg-[radial-gradient(circle_at_top_left,_rgba(125,211,252,0.22),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(249,115,22,0.18),_transparent_28%),linear-gradient(180deg,_#060816_0%,_#0b1023_46%,_#160b1e_100%)]" />
@@ -77,14 +39,42 @@ export default function Home() {
               Johann Holzmann
             </h1>
             <p className="max-w-3xl text-lg font-medium text-slate-300 md:text-xl">
-              Ingeniero en Computacion · Universidad Nacional del Sur
+              Ingeniero en Computación · Universidad Nacional del Sur
             </p>
             <p className="max-w-3xl text-base leading-8 text-slate-300 md:text-lg">
-              Diseno y construyo productos digitales con criterio tecnico,
-              sensibilidad visual y foco real en claridad. Estoy buscando una
-              nueva oportunidad para aportar en equipos que valoren producto,
-              sistema y ejecucion.
+              Diseño y construyo productos digitales con criterio técnico y sensibilidad por la experiencia de usuario. Fundamentalista de la simplicidad, la claridad, el código limpio y la escalabilidad. Apasionado por la tecnología, el diseño y la innovación, siempre buscando aprender y mejorar en cada proyecto.
             </p>
+          </div>
+
+          <div className={`${displayFont.className} flex flex-wrap gap-3 pt-1 text-sm uppercase tracking-[0.28em]`}>
+            <Link
+              href={cvHref}
+              className="rounded-full border border-white/10 bg-white/10 px-5 py-3 text-slate-50 transition hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-sky-400/30"
+            >
+              Ver CV
+            </Link>
+            <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-slate-200 transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400/30"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-slate-200 transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400/30"
+            >
+              GitHub
+            </a>
+            <a
+              href={emailHref}
+              className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-slate-200 transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-400/30"
+            >
+              Email
+            </a>
           </div>
 
           <div className="grid gap-4 pt-2 sm:grid-cols-2">
@@ -93,8 +83,7 @@ export default function Home() {
                 Enfoque
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-300">
-                Interfaces memorables, sistemas consistentes y decisiones de
-                producto sostenidas por una base tecnica solida.
+                Construir API REST robustas y eficientes, diseñar bases de datos escalables, optimizar rendimiento y aplicar buenas prácticas de desarrollo para crear productos digitales sólidos y mantenibles.
               </p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
@@ -102,8 +91,7 @@ export default function Home() {
                 Disponible para
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-300">
-                Frontend, producto digital y roles donde la experiencia visual
-                tenga tanto peso como la implementacion.
+                Busco unirme a un equipo donde pueda seguir creciendo como desarrollador Full Stack, aportando solidez en backend, aplicando buenas prácticas y visión de producto integral, dispuesto a sumergirme en cualquier tecnología.
               </p>
             </div>
           </div>
@@ -127,47 +115,71 @@ export default function Home() {
       </section>
 
       <div className="mt-10 space-y-10">
-        <SectionTitle title="Educacion" />
+        <SectionTitle title="Educación" />
         <section
           id="educacion"
           className="scroll-mt-28 grid gap-6 lg:grid-cols-[180px_minmax(0,1fr)]"
         >
           <p className={`${displayFont.className} text-sm uppercase tracking-[0.3em] text-amber-200`}>
-            2015 - 2020
+            {education.period}
           </p>
           <div className="space-y-4">
             <h2 className="text-3xl font-semibold text-slate-100">
-              Ingenieria en Computacion
+              {education.degree}
             </h2>
             <p className="text-base font-medium text-sky-200">
-              Universidad Nacional del Sur · Duracion estimada: 5 anos
+              {education.institution} · {education.duration}
             </p>
             <p className="max-w-3xl text-base leading-8 text-slate-300">
-              Formacion enfocada en sistemas, ingenieria de software y
-              resolucion estructurada de problemas. La carrera consolido un
-              enfoque tecnico con sensibilidad por producto y usabilidad.
+              {education.summary}
             </p>
             <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
               <p className={`${displayFont.className} text-xs uppercase tracking-[0.32em] text-cyan-200`}>
-                Proyecto final de carrera
+                {education.thesis.label}
               </p>
               <p className="mt-3 text-xl font-semibold text-slate-100">
-                Hoteleria Hospitalaria
+                {education.thesis.title}
               </p>
               <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-300">
-                Diseno e implementacion de una experiencia digital para gestion
-                hospitalaria, centrada en accesibilidad, trazabilidad y
-                claridad operativa.
+                {education.thesis.summary}
               </p>
             </div>
+
+            {education.linkedinPostEmbed ? (
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p
+                  className={`${displayFont.className} text-xs uppercase tracking-[0.32em] text-slate-400`}
+                >
+                  LinkedIn
+                </p>
+                <div className="mt-4 overflow-hidden rounded-xl border border-white/10 bg-slate-950/40">
+                  <iframe
+                    src={education.linkedinPostEmbed.src}
+                    title={education.linkedinPostEmbed.title}
+                    className="h-[520px] w-full border-0 sm:h-[400px]"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+                <div className="mt-3 text-sm text-slate-400">
+                  <a
+                    href={education.linkedinPostEmbed.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-200 underline underline-offset-4 transition hover:text-cyan-100"
+                  >
+                    Abrir publicacion en LinkedIn
+                  </a>
+                </div>
+              </div>
+            ) : null}
           </div>
         </section>
 
         <SectionTitle title="Experiencia" />
         <section id="experiencia" className="scroll-mt-28 space-y-8">
           <p className="text-sm text-slate-400">
-            Trayectoria actual y experiencia previa. Parte del contenido sigue
-            mockeado por ahora.
+            Trayectoria actual y experiencia previa.
           </p>
           {experience.map((item) => (
             <article
@@ -185,10 +197,32 @@ export default function Home() {
                   <p className="text-base font-medium text-sky-200">
                     {item.company}
                   </p>
+                  {/* website */}
+                  {item.website && (
+                    <Link
+                      href={item.website}
+                      target="_blank"
+                      className="text-sm text-cyan-200 transition hover:text-cyan-100"
+                    >
+                      {item.website.replace(/^https?:\/\//, "")}
+                    </Link>
+                  )}
                 </div>
                 <p className="max-w-3xl text-base leading-8 text-slate-300">
                   {item.summary}
                 </p>
+                {item.achievements && (
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {item.achievements.map((achievement, index) => (
+                      <p
+                        key={index}
+                        className="text-sm text-slate-300 list-item left-4 marker:text-cyan-400 margint-2"
+                      >
+                        {achievement}
+                      </p>
+                    ))}
+                  </div>
+                )}
                 <div className="flex flex-wrap gap-2 pt-1">
                   {item.stack.map((tag) => (
                     <span
@@ -207,7 +241,7 @@ export default function Home() {
         <SectionTitle title="Proyectos" />
         <section id="proyectos" className="scroll-mt-28 space-y-6">
           <p className="text-sm text-slate-400">
-            Una seleccion de trabajos reales y conceptuales.
+            Una selección de trabajos reales y conceptuales.
           </p>
           {projects.map((project) => (
             <article
@@ -250,13 +284,16 @@ export default function Home() {
                 </div>
 
                 <div className={`${displayFont.className} flex flex-wrap gap-4 text-sm uppercase tracking-[0.28em]`}>
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    className="text-cyan-200 transition hover:text-cyan-100"
-                  >
-                    GitHub
-                  </Link>
+                  {
+                    project.github &&
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      className="text-cyan-200 transition hover:text-cyan-100"
+                    >
+                      GitHub
+                    </Link>
+                  }
                   <Link
                     href={project.website}
                     target="_blank"
@@ -264,6 +301,14 @@ export default function Home() {
                   >
                     Web
                   </Link>
+                  {project.caseStudy ? (
+                    <Link
+                      href={`/proyectos/${project.slug}`}
+                      className="text-slate-200 transition hover:text-white"
+                    >
+                      Caso de estudio
+                    </Link>
+                  ) : null}
                 </div>
               </div>
             </article>

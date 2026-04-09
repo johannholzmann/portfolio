@@ -1,32 +1,36 @@
-import Image from "next/image"
+import { cvPdfHref } from "@/content/links";
 
-export default function CV({ }) {
-    return (
-        <div className="flex flex-col space-y-2 w-full">
-            <div className="text-center title">
-                Currículum Vitae
-            </div>
-            <br />
-            <div className="grid grid-cols-1 space-y-2 sm:space-y-0 sm:grid-cols-2 place-items-center ">
-                <div>
-                    <a target={"_blank"} href="/cv/CV - Holzmann Johann.pdf">
-                        <button className="btn-warning gap-1">
-                            {"Abrir "}
-                            <svg style={{ stroke: "currentcolor", fill: "currentcolor", strokeWidth: "0", height: '15px', width: '15px' }} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" data-darkreader-inline-fill="" data-darkreader-inline-stroke=""><path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"></path><path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"></path></svg>
-                        </button>
-                    </a>
-                </div>
-                <div>
-                    <a target={"_blank"} download href="/cv/CV - Holzmann Johann.pdf">
-                        <button className="btn-danger gap-1">
-                            {"Descargar "}
-                            <svg style={{ stroke: "currentcolor", fill: "currentcolor", strokeWidth: "0", height: '15px', width: '15px' }} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" data-darkreader-inline-fill="" data-darkreader-inline-stroke=""><path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"></path><path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"></path></svg>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            <br />
-            <iframe src="/cv/CV - Holzmann Johann.pdf" width="100%" height="800px" />
-        </div>
-    )
+export default function CV() {
+  return (
+    <div className="flex w-full flex-col space-y-6">
+      <h1 className="text-center text-3xl font-semibold text-slate-100">
+        Currículum Vitae
+      </h1>
+
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={cvPdfHref}
+          className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400/30"
+        >
+          Abrir PDF
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          download
+          href={cvPdfHref}
+          className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-slate-950/40 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400/30"
+        >
+          Descargar PDF
+        </a>
+      </div>
+
+      <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]">
+        <iframe src={cvPdfHref} width="100%" height="800px" />
+      </div>
+    </div>
+  );
 }
+

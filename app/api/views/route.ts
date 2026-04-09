@@ -29,7 +29,6 @@ export async function GET(request: NextRequest) {
         }
 
         if (createView) {
-
             await prisma.views.upsert({
                 where: {
                     ip: encryptedIp
