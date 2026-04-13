@@ -3,14 +3,16 @@ export const dynamic = 'force-dynamic';
 import { PrismaClient } from "@prisma/client";
 import { createHash } from "crypto";
 import { differenceInHours } from "date-fns";
-import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
     try {
+        if (!isSameOriginRequest(request)) {
+            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        }
+
         const prisma = new PrismaClient();
-        const headersList = await headers();
-        const ip = headersList.get("x-forwarded-for");
+        const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
         const encryptedIp = getEncryptedIP(ip ?? "127.0.0.1");
 
         const lastUserView = await prisma.views.findFirst({
@@ -74,4 +76,25 @@ function getEncryptedIP(ip: string) {
     const hash = createHash('sha256');
     hash.update(ip);
     return hash.digest('hex');
+}
+
+function isSameOriginRequest(request: NextRequest) {
+    const requestOrigin = request.nextUrl.origin;
+    const originHeader = request.headers.get("origin");
+    const refererHeader = request.headers.get("referer");
+
+    if (originHeader) {
+        return originHeader === requestOrigin;
+    }
+
+    if (refererHeader) {
+        try {
+            const refererOrigin = new URL(refererHeader).origin;
+            return refererOrigin === requestOrigin;
+        } catch {
+            return false;
+        }
+    }
+
+    return false;
 }
