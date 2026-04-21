@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { IBM_Plex_Mono, Inter } from "next/font/google";
 import { getHomeContent } from "@/lib/home-content";
 import { cvHref, emailHref, githubUrl, linkedinUrl } from "@/content/links";
@@ -308,30 +309,32 @@ export default async function Home() {
                 </div>
 
                 <div className={`${displayFont.className} flex flex-wrap gap-4 text-sm uppercase tracking-[0.28em]`}>
-                  {
-                    project.github &&
-                    <Link
+                  {project.github ? (
+                    <ActionLink
                       href={project.github}
                       target="_blank"
-                      className="text-cyan-200 transition hover:text-cyan-100"
+                      variant="github"
+                      icon={<GithubIcon className="h-4 w-4" />}
                     >
                       GitHub
-                    </Link>
-                  }
-                  <Link
+                    </ActionLink>
+                  ) : null}
+                  <ActionLink
                     href={project.website}
                     target="_blank"
-                    className="text-amber-200 transition hover:text-amber-100"
+                    variant="web"
+                    icon={<WebIcon className="h-4 w-4" />}
                   >
                     Web
-                  </Link>
+                  </ActionLink>
                   {project.caseStudy ? (
-                    <Link
+                    <ActionLink
                       href={`/proyectos/${project.slug}`}
-                      className="text-slate-200 transition hover:text-white"
+                      variant="caseStudy"
+                      icon={<CaseStudyIcon className="h-4 w-4" />}
                     >
                       Caso de estudio
-                    </Link>
+                    </ActionLink>
                   ) : null}
                 </div>
               </div>
@@ -349,5 +352,132 @@ function SectionTitle({ title }: { title: string }) {
       <div className="h-px w-full bg-white/10" />
       <h2 className="text-3xl font-semibold text-slate-100">{title}</h2>
     </div>
+  );
+}
+
+function ActionLink({
+  children,
+  href,
+  icon,
+  target,
+  variant,
+}: {
+  children: ReactNode;
+  href: string;
+  icon: ReactNode;
+  target?: "_blank";
+  variant: "github" | "web" | "caseStudy";
+}) {
+  const variantStyles = {
+    github:
+      "border-cyan-400/20 bg-cyan-400/10 text-cyan-100 hover:border-cyan-300/40 hover:bg-cyan-400/15 hover:text-white focus-visible:ring-cyan-300/40",
+    web:
+      "border-amber-300/20 bg-amber-300/10 text-amber-100 hover:border-amber-200/40 hover:bg-amber-300/15 hover:text-white focus-visible:ring-amber-200/40",
+    caseStudy:
+      "border-slate-200/15 bg-white/5 text-slate-100 hover:border-white/30 hover:bg-white/10 hover:text-white focus-visible:ring-slate-200/40",
+  } as const;
+
+  const content = (
+    <>
+      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-current">
+        {icon}
+      </span>
+      <span>{children}</span>
+      {target === "_blank" ? (
+        <ExternalArrowIcon className="h-3.5 w-3.5 opacity-80 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      ) : null}
+    </>
+  );
+
+  const className = [
+    "group inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-[11px] font-medium uppercase tracking-[0.26em]",
+    "transition duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950",
+    variantStyles[variant],
+  ].join(" ");
+
+  if (target === "_blank") {
+    return (
+      <a href={href} target={target} rel="noopener noreferrer" className={className}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={className}>
+      {content}
+    </Link>
+  );
+}
+
+function GithubIcon({ className }: { className?: string }) {
+  return (
+    <Image
+      src="/icons8-github-240.png"
+      alt=""
+      width={16}
+      height={16}
+      className={className}
+      aria-hidden="true"
+    />
+  );
+}
+
+function WebIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3a15 15 0 0 1 0 18" />
+      <path d="M12 3a15 15 0 0 0 0 18" />
+    </svg>
+  );
+}
+
+function CaseStudyIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M6 4.5h8.5L18 8v11.5H6z" />
+      <path d="M14.5 4.5V8H18" />
+      <path d="M8.5 11h6" />
+      <path d="M8.5 14h6" />
+      <path d="M8.5 17h4" />
+    </svg>
+  );
+}
+
+function ExternalArrowIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M7 17 17 7" />
+      <path d="M10 7h7v7" />
+    </svg>
   );
 }
