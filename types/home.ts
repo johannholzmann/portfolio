@@ -30,6 +30,7 @@ export type ProjectItem = {
   caseStudy?: boolean;
   title: string;
   description: string;
+  logo?: string;
   github?: string;
   website: string;
   accent: string;

@@ -83,6 +83,30 @@ export const projects = [
     ],
   },
   {
+    slug: "quecompramos",
+    caseStudy: true,
+    title: "QueCompramos",
+    description:
+      "Aplicacion fullstack para crear y compartir una lista de compras viva, con acceso por enlace secreto, sesion temporal por cookies y edicion colaborativa sin login.",
+    logo: "/images/quecompramos/quecompramos.png",
+    github: "https://github.com/johannholzmann/listamercado",
+    website: "https://listamercadox.vercel.app/",
+    accent: "from-emerald-400/35 via-lime-500/20 to-transparent",
+    label: "Shared shopping list",
+    tags: [
+      "Next.js 16",
+      "App Router",
+      "Prisma",
+      "PostgreSQL",
+      "Neon",
+      "Vercel",
+      "Cookies",
+      "Fullstack",
+      "Colaboracion",
+      "UX simple",
+    ],
+  },
+  {
     slug: "portfolio",
     title: "Portfolio",
     description:

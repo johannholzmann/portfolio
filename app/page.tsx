@@ -252,13 +252,37 @@ export default async function Home() {
                 className={`relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-slate-950 p-4 ${project.accent}`}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/[0.03] to-transparent" />
-                <div className="relative flex h-full min-h-32 flex-col justify-between">
-                  <span className={`${displayFont.className} text-[11px] uppercase tracking-[0.3em] text-slate-300`}>
-                    Preview
-                  </span>
-                  <p className={`${displayFont.className} text-lg leading-6 text-white`}>
-                    {project.label}
-                  </p>
+                <div className="relative flex h-full min-h-40 flex-col gap-4">
+                  <div className="flex-1 rounded-[1rem] border border-white/10 bg-white/10 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                    {project.logo ? (
+                      <div className="flex h-full min-h-24 items-center justify-center rounded-[0.85rem] bg-white/80 p-3">
+                        <Image
+                          src={project.logo}
+                          alt={`${project.title} logo`}
+                          width={200}
+                          height={200}
+                          className="h-auto w-full max-w-[150px] object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex h-full min-h-24 flex-col justify-between rounded-[0.85rem] bg-slate-950/30 p-3">
+                        <span className={`${displayFont.className} text-[11px] uppercase tracking-[0.3em] text-slate-300`}>
+                          Preview
+                        </span>
+                        <p className={`${displayFont.className} text-lg leading-6 text-white`}>
+                          {project.label}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex items-end justify-between gap-3">
+                    <span className={`${displayFont.className} text-[11px] uppercase tracking-[0.3em] text-slate-300`}>
+                      Preview
+                    </span>
+                    <p className={`${displayFont.className} text-sm leading-5 text-white/90`}>
+                      {project.label}
+                    </p>
+                  </div>
                 </div>
               </div>
 
