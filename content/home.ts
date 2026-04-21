@@ -90,7 +90,7 @@ export const projects = [
       "Aplicacion fullstack para crear y compartir una lista de compras viva, con acceso por enlace secreto, sesion temporal por cookies y edicion colaborativa sin login.",
     logo: "/images/quecompramos/quecompramos.png",
     github: "https://github.com/johannholzmann/listamercado",
-    website: "https://listamercadox.vercel.app/",
+    website: "https://quecompramos.vercel.app/",
     accent: "from-emerald-400/35 via-lime-500/20 to-transparent",
     label: "Shared shopping list",
     tags: [

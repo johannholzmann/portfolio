@@ -105,7 +105,7 @@ export const quecompramos: CaseStudy = {
   ],
   links: {
     github: "https://github.com/johannholzmann/listamercado",
-    live: "https://listamercadox.vercel.app/",
+    live: "https://quecompramos.vercel.app/",
   },
   images: [
     {
