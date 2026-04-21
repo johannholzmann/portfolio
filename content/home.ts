@@ -65,7 +65,7 @@ export const projects = [
     description:
       "Prototipo web desarrollado como proyecto final de carrera para gestionar la postulación, ofrecimiento y asignación de turnos extras del área de Gestión de Servicios Internos y Hotelería Hospitalaria.",
     github: undefined,
-    website: "https://www.linkedin.com/posts/johannholzmann_proyecto-final-de-carrera-actividad-7087370865834413056-9n2s?utm_source=share&utm_medium=member_desktop",
+    website: "https://www.linkedin.com/posts/johann-holzmann_me-recib%C3%AD-soy-ingeniero-en-computaci%C3%B3n-ugcPost-7424070226104946689-CpeU",
     accent: "from-cyan-400/40 via-sky-500/20 to-transparent",
     label: "Hospitality system",
     tags: [
