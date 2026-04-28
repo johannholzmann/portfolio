@@ -104,12 +104,12 @@ export default async function Home() {
           <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 backdrop-blur">
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-300/10 via-transparent to-orange-300/10" />
             <Image
-              src="/avatar.png"
+              src="/avatar_cut.jpg"
               alt="Johann Holzmann"
-              width={420}
-              height={420}
+              width={560}
+              height={560}
               priority
-              className="relative h-auto w-full rounded-[1.5rem] opacity-80 saturate-0"
+              className="relative h-auto w-full rounded-[1.5rem] object-cover"
             />
           </div>
         </div>
