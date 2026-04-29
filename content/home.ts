@@ -107,6 +107,26 @@ export const projects = [
     ],
   },
   {
+    slug: "apuestitax",
+    title: "ApuestitaX",
+    description:
+      "Herramienta web para calcular escenarios de sure bet a partir de cuotas y montos, comparando distribucion de apuestas, inversion total y ganancia potencial sin integraciones externas.",
+    github: "https://github.com/johannholzmann/apuestitax",
+    website: "https://apuestita.vercel.app/",
+    accent: "from-orange-400/35 via-amber-500/20 to-transparent",
+    label: "Sure bet calculator",
+    logo: '/images/apuestitax/icon.png',
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vercel",
+      "Calculadora",
+      "UX",
+      "Responsive UI",
+    ],
+  },
+  {
     slug: "portfolio",
     title: "Portfolio",
     description:
