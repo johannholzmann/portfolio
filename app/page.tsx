@@ -28,10 +28,6 @@ export default async function Home() {
         className="scroll-mt-28 grid gap-10 rounded-[2rem] border border-white/10 bg-slate-950/60 px-6 py-8 shadow-[0_30px_120px_rgba(3,7,18,0.65)] backdrop-blur md:grid-cols-[minmax(0,1fr)_280px] md:px-10 md:py-10"
       >
         <div className="space-y-6">
-          <div className={`${displayFont.className} inline-flex rounded-full border border-amber-300/30 bg-amber-300/10 px-4 py-2 text-sm uppercase tracking-[0.35em] text-amber-200`}>
-            Open to work
-          </div>
-
           <div className="space-y-4">
             <p className={`${displayFont.className} text-sm uppercase tracking-[0.38em] text-sky-300`}>
               Software Engineer
@@ -89,10 +85,10 @@ export default async function Home() {
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
               <p className={`${displayFont.className} text-xs uppercase tracking-[0.32em] text-slate-400`}>
-                Disponible para
+                Actualidad
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-300">
-                Busco unirme a un equipo donde pueda seguir creciendo como desarrollador Full Stack, aportando solidez en backend, aplicando buenas prácticas y visión de producto integral, dispuesto a sumergirme en cualquier tecnología.
+                Actualmente me desempeño como Analista Desarrollador de Software Semi Senior en On City, trabajando en soluciones backend, frontend, bases de datos y flujos de entrega sobre Azure DevOps.
               </p>
             </div>
           </div>
@@ -203,11 +199,27 @@ export default async function Home() {
                     <Link
                       href={item.website}
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="text-sm text-cyan-200 transition hover:text-cyan-100"
                     >
                       {item.website.replace(/^https?:\/\//, "")}
                     </Link>
                   )}
+                  {item.links ? (
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 pt-1 text-sm">
+                      {item.links.map((link) => (
+                        <a
+                          key={link.href}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-cyan-200 underline underline-offset-4 transition hover:text-cyan-100"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
                 <p className="max-w-3xl text-base leading-8 text-slate-300">
                   {item.summary}

@@ -63,6 +63,9 @@ function Footer() {
       </div>
       <View />
       <div className="mt-2">
+        Última actualización: julio 2026
+      </div>
+      <div className="mt-2">
         Copyright © Portfolio {new Date().getFullYear()}
       </div>
     </footer>

@@ -20,6 +20,10 @@ export type ExperienceItem = {
   role: string;
   company: string;
   website?: string;
+  links?: {
+    label: string;
+    href: string;
+  }[];
   summary: string;
   achievements?: string[];
   stack: string[];

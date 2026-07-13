@@ -26,6 +26,41 @@ export const education = {
 
 export const experience = [
   {
+    period: "Mayo 2026 - actualidad",
+    role: "Analista Desarrollador de Software Semi Senior",
+    company: "On City",
+    links: [
+      {
+        label: "LinkedIn empresa",
+        href: "https://www.linkedin.com/company/on-city",
+      },
+      {
+        label: "Publicación en LinkedIn",
+        href: "https://www.linkedin.com/feed/update/urn:li:activity:7470630202667065344/",
+      },
+    ],
+    summary:
+      "Actualmente trabajo en soluciones de software con foco en backend, frontend, bases de datos y flujos de entrega sobre Azure DevOps.",
+    achievements: [
+      "Desarrollo backend en .NET Framework con C#.",
+      "Desarrollo frontend con Angular y TypeScript.",
+      "Trabajo con base de datos Informix.",
+      "Participación en equipos Scrum y metodologías ágiles, usando Azure DevOps como plataforma de seguimiento.",
+      "Implementación de pipelines y releases similares a CI/CD en Azure DevOps.",
+    ],
+    stack: [
+      ".NET Framework",
+      "C#",
+      "Angular",
+      "TypeScript",
+      "Informix",
+      "Scrum",
+      "Azure DevOps",
+      "Pipelines",
+      "Releases",
+    ],
+  },
+  {
     period: "May 2023 - Feb 2026",
     role: "Fullstack Developer",
     company: "NexoSmart",
