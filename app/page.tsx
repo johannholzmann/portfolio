@@ -97,16 +97,22 @@ export default async function Home() {
         <div className="relative mx-auto flex w-full max-w-[280px] items-center justify-center md:max-w-none">
           <div className="absolute h-64 w-64 rounded-full bg-cyan-400/20 blur-3xl" />
           <div className="absolute h-56 w-56 rounded-full bg-orange-400/15 blur-3xl" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 backdrop-blur">
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-300/10 via-transparent to-orange-300/10" />
-            <Image
-              src="/avatar_cut.jpg"
-              alt="Johann Holzmann"
-              width={560}
-              height={560}
-              priority
-              className="relative h-auto w-full rounded-[1.5rem] object-cover"
-            />
+          <div className="relative w-full pb-5">
+            <div className="relative overflow-hidden rounded-[2rem] border border-emerald-300/30 bg-white/5 p-3 backdrop-blur">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-300/10 via-transparent to-orange-300/10" />
+              <Image
+                src="/avatar_cut.jpg"
+                alt="Johann Holzmann"
+                width={560}
+                height={560}
+                priority
+                className="relative h-auto w-full rounded-[1.5rem] object-cover"
+              />
+            </div>
+            <p className={`${displayFont.className} absolute bottom-0 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-emerald-200 bg-emerald-300 px-5 py-2.5 text-xs font-semibold tracking-[0.12em] text-emerald-900 shadow-[0_8px_24px_rgba(2,6,23,0.45)]`}>
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-900" />
+              #OpenToWork
+            </p>
           </div>
         </div>
       </section>
