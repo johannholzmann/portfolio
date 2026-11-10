@@ -3,7 +3,40 @@ import type {
   ExperienceItem,
   HomeContent,
   ProjectItem,
+  TechnologyGroup,
 } from "@/types/home";
+
+export const technologies = [
+  {
+    title: "Backend",
+    items: [".NET", ".NET Framework", "Laravel", "Node.js", "NestJS", "Express.js"],
+  },
+  {
+    title: "Frontend",
+    items: ["Angular", "React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS"],
+  },
+  {
+    title: "Bases de datos",
+    items: ["SQL Server", "MySQL", "PostgreSQL", "Informix"],
+  },
+  {
+    title: "DevOps y herramientas",
+    items: [
+      "Azure DevOps",
+      "Azure Pipelines",
+      "Nginx",
+      "Git",
+      "Vercel",
+      "Supabase",
+      "Clerk",
+      "Supervisor",
+    ],
+  },
+  {
+    title: "Herramientas de IA",
+    items: ["GitHub Copilot", "OpenAI Codex", "Claude Code", "Skills"],
+  },
+] satisfies TechnologyGroup[];
 
 export const education = {
   period: "2017 - 2025",
@@ -26,7 +59,7 @@ export const education = {
 
 export const experience = [
   {
-    period: "Mayo 2026 - actualidad",
+    period: "Mayo 2026 - Septiembre 2026",
     role: "Analista Desarrollador de Software Semi Senior",
     company: "On City",
     links: [
@@ -40,7 +73,7 @@ export const experience = [
       },
     ],
     summary:
-      "Actualmente trabajo en soluciones de software con foco en backend, frontend, bases de datos y flujos de entrega sobre Azure DevOps.",
+      "Trabajé en soluciones de software con foco en backend, frontend, bases de datos y flujos de entrega sobre Azure DevOps.",
     achievements: [
       "Desarrollo backend en .NET Framework con C#.",
       "Desarrollo frontend con Angular y TypeScript.",
@@ -175,6 +208,7 @@ export const projects = [
 ] satisfies ProjectItem[];
 
 export const homeContent = {
+  technologies,
   education,
   experience,
   projects,

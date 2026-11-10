@@ -42,7 +42,13 @@ export type ProjectItem = {
   tags: string[];
 };
 
+export type TechnologyGroup = {
+  title: string;
+  items: string[];
+};
+
 export type HomeContent = {
+  technologies: TechnologyGroup[];
   education: Education;
   experience: ExperienceItem[];
   projects: ProjectItem[];

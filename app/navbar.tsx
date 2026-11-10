@@ -10,6 +10,9 @@ const navItems = {
   "#hero": {
     name: "Inicio",
   },
+  "#tecnologias": {
+    name: "Tecnologías",
+  },
   "#educacion": {
     name: "Educación",
   },

@@ -16,7 +16,7 @@ const bodyFont = Inter({
 });
 
 export default async function Home() {
-  const { education, experience, projects } = await getHomeContent();
+  const { technologies, education, experience, projects } = await getHomeContent();
 
   return (
     <div className={`${bodyFont.className} relative w-full overflow-hidden`}>
@@ -88,7 +88,7 @@ export default async function Home() {
                 Actualidad
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-300">
-                Actualmente me desempeño como Analista Desarrollador de Software Semi Senior en On City, trabajando en soluciones backend, frontend, bases de datos y flujos de entrega sobre Azure DevOps.
+                Open to work. Busco oportunidades como Backend Developer, Fullstack Developer, Software Engineer y posiciones afines.
               </p>
             </div>
           </div>
@@ -112,6 +112,36 @@ export default async function Home() {
       </section>
 
       <div className="mt-10 space-y-10">
+        <section
+          id="tecnologias"
+          aria-labelledby="tecnologias-title"
+          className="scroll-mt-28 space-y-6"
+        >
+          <SectionTitle title="Skills y tecnologías" id="tecnologias-title" />
+          <div className="grid gap-4 md:grid-cols-2">
+            {technologies.map((group) => (
+              <article
+                key={group.title}
+                className="min-w-0 rounded-2xl border border-white/10 bg-white/5 p-5"
+              >
+                <h3 className="text-lg font-semibold text-sky-200">
+                  {group.title}
+                </h3>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {group.items.map((technology) => (
+                    <li
+                      key={technology}
+                      className={`${displayFont.className} whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-200`}
+                    >
+                      {technology}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <SectionTitle title="Educación" />
         <section
           id="educacion"
@@ -358,11 +388,11 @@ export default async function Home() {
   );
 }
 
-function SectionTitle({ title }: { title: string }) {
+function SectionTitle({ title, id }: { title: string; id?: string }) {
   return (
     <div className="space-y-3 pt-2">
       <div className="h-px w-full bg-white/10" />
-      <h2 className="text-3xl font-semibold text-slate-100">{title}</h2>
+      <h2 id={id} className="text-3xl font-semibold text-slate-100">{title}</h2>
     </div>
   );
 }
