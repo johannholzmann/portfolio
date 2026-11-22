@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { caseStudies, getCaseStudy } from "@/content/projects";
 import ScrollSnapCarousel from "@/components/carousel/scroll_snap_carousel";
+import Image from "next/image";
 
 export const dynamicParams = false;
 
@@ -62,6 +63,12 @@ export default async function CaseStudyPage({
         </section>
       ) : null}
 
+      {slug === "hoteleria-hospitalaria" ? (
+        <figure className="max-w-4xl border-t border-ivory/15 pt-5">
+          <Image src="/images/hoteleria-hospitalaria/manager/dashboard.png" alt="Dashboard del gestor de Hotelería Hospitalaria con turnos y postulaciones" width={1440} height={900} loading="lazy" className="h-auto w-full rounded-md border border-ivory/10" />
+          <figcaption className="mt-2 font-mono text-xs text-muted">Panel del gestor · Hotelería Hospitalaria</figcaption>
+        </figure>
+      ) : null}
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold text-slate-100">Caso</h2>
         <div className="space-y-6">

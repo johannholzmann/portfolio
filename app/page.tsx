@@ -1,45 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { IBM_Plex_Mono, Inter } from "next/font/google";
 import { getHomeContent } from "@/lib/home-content";
 import { cvHref, emailHref, githubUrl, linkedinUrl } from "@/content/links";
 
-const displayFont = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const bodyFont = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
+const displayFont = { className: "font-mono" };
 
 export default async function Home() {
   const { technologies, education, experience, projects } = await getHomeContent();
 
   return (
-    <div className={`${bodyFont.className} relative w-full overflow-hidden`}>
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[38rem] bg-[radial-gradient(circle_at_top_left,_rgba(125,211,252,0.22),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(249,115,22,0.18),_transparent_28%),linear-gradient(180deg,_#060816_0%,_#0b1023_46%,_#160b1e_100%)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-24 -z-10 mx-auto h-80 max-w-6xl bg-[radial-gradient(circle,_rgba(59,130,246,0.12),_transparent_62%)] blur-3xl" />
+    <div className="relative w-full overflow-hidden">
 
       <section
         id="hero"
-        className="scroll-mt-28 grid gap-10 rounded-[2rem] border border-white/10 bg-slate-950/60 px-6 py-8 shadow-[0_30px_120px_rgba(3,7,18,0.65)] backdrop-blur md:grid-cols-[minmax(0,1fr)_280px] md:px-10 md:py-10"
+        className="scroll-mt-28 grid gap-10 border-b border-ivory/20 px-2 py-8 md:grid-cols-[minmax(0,1fr)_280px] md:px-0 md:py-10"
       >
         <div className="space-y-6">
           <div className="space-y-4">
             <p className={`${displayFont.className} text-sm uppercase tracking-[0.38em] text-sky-300`}>
               Software Engineer
             </p>
-            <h1 className="max-w-3xl text-5xl font-semibold leading-[0.92] tracking-[-0.04em] text-slate-50 md:text-7xl">
+            <h1 className="font-heading max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.04em] text-ivory sm:text-5xl md:text-7xl">
               Johann Holzmann
             </h1>
             <p className="max-w-3xl text-lg font-medium text-slate-300 md:text-xl">
               Ingeniero en Computación · Universidad Nacional del Sur
             </p>
             <p className="max-w-3xl text-base leading-8 text-slate-300 md:text-lg">
-              Diseño y construyo productos digitales con criterio técnico y sensibilidad por la experiencia de usuario. Fundamentalista de la simplicidad, la claridad, el código limpio y la escalabilidad. Apasionado por la tecnología, el diseño y la innovación, siempre buscando aprender y mejorar en cada proyecto.
+              Cuento con <strong className="font-semibold">más de 3 años de experiencia</strong> en desarrollo de software, con foco en <strong className="font-semibold">backend</strong> y en el diseño de aplicaciones empresariales, desarrollo y mantenimiento de APIs REST con .NET, Laravel y Node.js. También trabajé con bases de datos relacionales, Angular, React y Next.js, y el despliegue de aplicaciones en servidores.
+            </p>
+            <p className="max-w-3xl text-base leading-8 text-slate-300 md:text-lg">
+              Fundamentalista de la simplicidad, la claridad, el código limpio y la escalabilidad. Apasionado por la tecnología, el diseño y la innovación, siempre buscando aprender y mejorar en cada proyecto.
+            </p>
+            <p className="max-w-3xl text-base leading-8 text-slate-300 md:text-lg">
+              Actualmente estoy en <strong className="font-semibold">búsqueda activa</strong> de oportunidades como Backend Developer, Fullstack Developer o Software Engineer.
             </p>
           </div>
 
@@ -74,141 +69,29 @@ export default async function Home() {
             </a>
           </div>
 
-          <div className="grid gap-4 pt-2 sm:grid-cols-2">
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
-              <p className={`${displayFont.className} text-xs uppercase tracking-[0.32em] text-slate-400`}>
-                Enfoque
-              </p>
-              <p className="mt-3 text-sm leading-7 text-slate-300">
-                Construir API REST robustas y eficientes, diseñar bases de datos escalables, optimizar rendimiento y aplicar buenas prácticas de desarrollo para crear productos digitales sólidos y mantenibles.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
-              <p className={`${displayFont.className} text-xs uppercase tracking-[0.32em] text-slate-400`}>
-                Actualidad
-              </p>
-              <p className="mt-3 text-sm leading-7 text-slate-300">
-                Open to work. Busco oportunidades como Backend Developer, Fullstack Developer, Software Engineer y posiciones afines.
-              </p>
-            </div>
-          </div>
         </div>
 
         <div className="relative mx-auto flex w-full max-w-[280px] items-center justify-center md:max-w-none">
-          <div className="absolute h-64 w-64 rounded-full bg-cyan-400/20 blur-3xl" />
-          <div className="absolute h-56 w-56 rounded-full bg-orange-400/15 blur-3xl" />
           <div className="relative w-full pb-5">
-            <div className="relative overflow-hidden rounded-[2rem] border border-emerald-300/30 bg-white/5 p-3 backdrop-blur">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-300/10 via-transparent to-orange-300/10" />
+            <div className="relative overflow-hidden rounded-md border border-mint/30">
               <Image
                 src="/avatar_cut.jpg"
                 alt="Johann Holzmann"
                 width={560}
                 height={560}
                 priority
-                className="relative h-auto w-full rounded-[1.5rem] object-cover"
+                className="relative h-auto w-full object-cover"
               />
             </div>
-            <p className={`${displayFont.className} absolute bottom-0 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-emerald-200 bg-emerald-300 px-5 py-2.5 text-xs font-semibold tracking-[0.12em] text-emerald-900 shadow-[0_8px_24px_rgba(2,6,23,0.45)]`}>
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-900" />
-              #OpenToWork
+            <p className={`${displayFont.className} absolute bottom-0 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-availability bg-availability px-5 py-2.5 text-xs font-semibold tracking-[0.12em] text-ivory shadow-[0_8px_24px_rgba(2,6,23,0.45)]`}>
+              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-ivory" />
+              #OPENTOWORK
             </p>
           </div>
         </div>
       </section>
 
       <div className="mt-10 space-y-10">
-        <section
-          id="tecnologias"
-          aria-labelledby="tecnologias-title"
-          className="scroll-mt-28 space-y-6"
-        >
-          <SectionTitle title="Skills y tecnologías" id="tecnologias-title" />
-          <div className="grid gap-4 md:grid-cols-2">
-            {technologies.map((group) => (
-              <article
-                key={group.title}
-                className="min-w-0 rounded-2xl border border-white/10 bg-white/5 p-5"
-              >
-                <h3 className="text-lg font-semibold text-sky-200">
-                  {group.title}
-                </h3>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {group.items.map((technology) => (
-                    <li
-                      key={technology}
-                      className={`${displayFont.className} whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-200`}
-                    >
-                      {technology}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <SectionTitle title="Educación" />
-        <section
-          id="educacion"
-          className="scroll-mt-28 grid gap-6 lg:grid-cols-[180px_minmax(0,1fr)]"
-        >
-          <p className={`${displayFont.className} text-sm uppercase tracking-[0.3em] text-amber-200`}>
-            {education.period}
-          </p>
-          <div className="space-y-4">
-            <h2 className="text-3xl font-semibold text-slate-100">
-              {education.degree}
-            </h2>
-            <p className="text-base font-medium text-sky-200">
-              {education.institution} · {education.duration}
-            </p>
-            <p className="max-w-3xl text-base leading-8 text-slate-300">
-              {education.summary}
-            </p>
-            <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4">
-              <p className={`${displayFont.className} text-xs uppercase tracking-[0.32em] text-cyan-200`}>
-                {education.thesis.label}
-              </p>
-              <p className="mt-3 text-xl font-semibold text-slate-100">
-                {education.thesis.title}
-              </p>
-              <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-300">
-                {education.thesis.summary}
-              </p>
-            </div>
-
-            {education.linkedinPostEmbed ? (
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p
-                  className={`${displayFont.className} text-xs uppercase tracking-[0.32em] text-slate-400`}
-                >
-                  LinkedIn
-                </p>
-                <div className="mt-4 overflow-hidden rounded-xl border border-white/10 bg-slate-950/40">
-                  <iframe
-                    src={education.linkedinPostEmbed.src}
-                    title={education.linkedinPostEmbed.title}
-                    className="h-[520px] w-full border-0 sm:h-[400px]"
-                    allowFullScreen
-                    loading="lazy"
-                  />
-                </div>
-                <div className="mt-3 text-sm text-slate-400">
-                  <a
-                    href={education.linkedinPostEmbed.src}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-cyan-200 underline underline-offset-4 transition hover:text-cyan-100"
-                  >
-                    Abrir publicacion en LinkedIn
-                  </a>
-                </div>
-              </div>
-            ) : null}
-          </div>
-        </section>
-
         <SectionTitle title="Experiencia" />
         <section id="experiencia" className="scroll-mt-28 space-y-8">
           <p className="text-sm text-slate-400">
@@ -287,6 +170,97 @@ export default async function Home() {
           ))}
         </section>
 
+        <SectionTitle title="Educación" />
+        <section
+          id="educacion"
+          className="scroll-mt-28 grid gap-6 lg:grid-cols-[180px_minmax(0,1fr)]"
+        >
+          <p className={`${displayFont.className} text-sm uppercase tracking-[0.3em] text-amber-200`}>
+            {education.period}
+          </p>
+          <div className="space-y-4">
+            <h2 className="text-3xl font-semibold text-slate-100">
+              {education.degree}
+            </h2>
+            <p className="text-base font-medium text-sky-200">
+              {education.institution} · {education.duration}
+            </p>
+            <p className="max-w-3xl text-base leading-8 text-slate-300">
+              {education.summary}
+            </p>
+            <div className="border-l border-mint/50 py-2 pl-5">
+              <p className={`${displayFont.className} text-xs uppercase tracking-[0.32em] text-cyan-200`}>
+                {education.thesis.label}
+              </p>
+              <p className="mt-3 text-xl font-semibold text-slate-100">
+                {education.thesis.title}
+              </p>
+              <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-300">
+                {education.thesis.summary}
+              </p>
+            </div>
+
+            {education.linkedinPostEmbed ? (
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p
+                  className={`${displayFont.className} text-xs uppercase tracking-[0.32em] text-slate-400`}
+                >
+                  LinkedIn
+                </p>
+                <div className="mt-4 overflow-hidden rounded-xl border border-white/10 bg-slate-950/40">
+                  <iframe
+                    src={education.linkedinPostEmbed.src}
+                    title={education.linkedinPostEmbed.title}
+                    className="h-[520px] w-full border-0 sm:h-[400px]"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+                <div className="mt-3 text-sm text-slate-400">
+                  <a
+                    href={education.linkedinPostEmbed.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-200 underline underline-offset-4 transition hover:text-cyan-100"
+                  >
+                    Abrir publicacion en LinkedIn
+                  </a>
+                </div>
+              </div>
+            ) : null}
+          </div>
+        </section>
+
+        <section
+          id="tecnologias"
+          aria-labelledby="tecnologias-title"
+          className="scroll-mt-28 space-y-6"
+        >
+          <SectionTitle title="Skills y tecnologías" id="tecnologias-title" />
+          <div className="grid gap-4 md:grid-cols-2">
+            {technologies.map((group) => (
+              <article
+                key={group.title}
+                className="min-w-0 border-t border-ivory/15 py-5"
+              >
+                <h3 className="text-lg font-semibold text-sky-200">
+                  {group.title}
+                </h3>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {group.items.map((technology) => (
+                    <li
+                      key={technology}
+                      className={`${displayFont.className} whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-200`}
+                    >
+                      {technology}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <SectionTitle title="Proyectos" />
         <section id="proyectos" className="scroll-mt-28 space-y-6">
           <p className="text-sm text-slate-400">
@@ -295,14 +269,14 @@ export default async function Home() {
           {projects.map((project) => (
             <article
               key={project.title}
-              className="grid gap-5 rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-4 md:grid-cols-[220px_minmax(0,1fr)] md:p-5"
+              className="grid gap-5 border-t border-ivory/15 py-6 md:grid-cols-[220px_minmax(0,1fr)]"
             >
               <div
-                className={`relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-slate-950 p-4 ${project.accent}`}
+                className="relative overflow-hidden border border-ivory/10 bg-surface p-4"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/[0.03] to-transparent" />
                 <div className="relative flex h-full min-h-40 flex-col gap-4">
-                  <div className="flex-1 rounded-[1rem] border border-white/10 bg-white/10 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                  <div className="flex-1 border border-ivory/10 bg-ink p-3">
                     {project.logo ? (
                       <div className="flex h-full min-h-24 items-center justify-center rounded-[0.85rem] bg-white/80 p-3">
                         <Image

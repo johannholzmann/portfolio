@@ -6,6 +6,10 @@ html {
     scroll-behavior: smooth;
 }
 
+h1, h2, h3 {
+    font-family: var(--font-spectral), Georgia, serif;
+}
+
 @layer components {
     .btn {
         @apply flex flex-row items-center justify-center text-center text-xl rounded-[0.25rem] text-center align-middle px-4 py-2 hover:scale-[103%] duration-100;
